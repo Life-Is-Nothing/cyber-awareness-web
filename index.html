@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Cyber Awareness</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3}
+    header{background:linear-gradient(135deg,#cc0000,#1a1a2e);padding:50px 20px;text-align:center}
+    header h1{font-size:2.2em;margin-bottom:8px}
+    header p{opacity:.85}
+    .tips{display:flex;flex-wrap:wrap;gap:20px;padding:50px 30px;max-width:1000px;margin:0 auto}
+    .tip{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:25px;flex:1;min-width:220px}
+    .tip .icon{font-size:2em;margin-bottom:12px}
+    .tip h3{color:#cc0000;margin-bottom:8px}
+    .tip p{opacity:.75;line-height:1.6;font-size:.95em}
+    .quiz{background:#161b22;margin:0 30px 50px;border-radius:12px;padding:35px;max-width:700px;margin-inline:auto}
+    .quiz h2{color:#cc0000;margin-bottom:20px}
+    .question{margin-bottom:25px}
+    .question p{font-weight:bold;margin-bottom:12px}
+    .choices label{display:block;padding:10px 15px;border:1px solid #30363d;border-radius:6px;margin-bottom:8px;cursor:pointer}
+    .choices label:hover{border-color:#cc0000;background:#cc000011}
+    button{background:#cc0000;color:white;padding:12px 28px;border:none;border-radius:8px;cursor:pointer;font-size:1em}
+    #result{margin-top:20px;font-size:1.1em;font-weight:bold}
+    footer{text-align:center;padding:25px;opacity:.5;border-top:1px solid #30363d}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cyber Awareness</h1>
+    <p>Protegez-vous en ligne — conseils et quiz interactifs</p>
+  </header>
+  <div class='tips'>
+    <div class='tip'><div class='icon'>🔐</div><h3>Mots de passe</h3><p>Utilisez un mot de passe unique par site, minimum 12 caracteres avec majuscules, chiffres et symboles.</p></div>
+    <div class='tip'><div class='icon'>🎣</div><h3>Phishing</h3><p>Verifiez l expediteur des emails. Ne cliquez pas sur les liens suspects. Les banques ne demandent jamais votre mot de passe par email.</p></div>
+    <div class='tip'><div class='icon'>📱</div><h3>Double authentification</h3><p>Activez la 2FA sur tous vos comptes importants (email, banque, reseaux sociaux).</p></div>
+    <div class='tip'><div class='icon'>🔄</div><h3>Mises a jour</h3><p>Gardez votre systeme et applications a jour. Les mises a jour corrigent les failles de securite.</p></div>
+    <div class='tip'><div class='icon'>📶</div><h3>Wi-Fi public</h3><p>Evitez les Wi-Fi publics pour vos operations bancaires. Utilisez un VPN si necessaire.</p></div>
+    <div class='tip'><div class='icon'>💾</div><h3>Sauvegardes</h3><p>Effectuez des sauvegardes regulieres de vos donnees importantes sur un support externe.</p></div>
+  </div>
+  <div class='quiz'>
+    <h2>Quiz — Testez vos connaissances</h2>
+    <div class='question'>
+      <p>1. Qu est-ce qu un bon mot de passe ?</p>
+      <div class='choices'>
+        <label><input type='radio' name='q1' value='a'> MonNom123</label>
+        <label><input type='radio' name='q1' value='b'> X9#kL!mQ2pRv</label>
+        <label><input type='radio' name='q1' value='c'> password</label>
+      </div>
+    </div>
+    <div class='question'>
+      <p>2. Vous recevez un email urgent de votre banque demandant votre mot de passe. Que faites-vous ?</p>
+      <div class='choices'>
+        <label><input type='radio' name='q2' value='a'> Vous repondez avec votre mot de passe</label>
+        <label><input type='radio' name='q2' value='b'> Vous ignorez et appelez directement votre banque</label>
+        <label><input type='radio' name='q2' value='c'> Vous cliquez sur le lien fourni</label>
+      </div>
+    </div>
+    <button onclick="check()">Verifier mes reponses</button>
+    <div id='result'></div>
+  </div>
+  <footer><p>Cyber Awareness &copy; 2024 — ibramoha2 | Niger</p></footer>
+  <script>
+    function check() {
+      var q1 = document.querySelector('input[name=q1]:checked');
+      var q2 = document.querySelector('input[name=q2]:checked');
+      if (!q1 || !q2) { document.getElementById('result').textContent = 'Veuillez repondre a toutes les questions.'; return; }
+      var score = (q1.value === 'b' ? 1 : 0) + (q2.value === 'b' ? 1 : 0);
+      var msgs = ['Continuez a apprendre !', 'Bien ! Encore un effort.', 'Parfait ! Vous etes vigilant(e) !'];
+      document.getElementById('result').textContent = score + '/2 — ' + msgs[score];
+    }
+  </script>
+</body>
+</html>
